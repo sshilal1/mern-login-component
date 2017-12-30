@@ -39,14 +39,17 @@ class MyComponent extends React.Component {
 	render() {
 
 		var style = {
-			color : this.state.color
+			color : this.state.color,
+			fontSize : "5rem"
 		}
 
+		var btnStyle = { fontSize: "3rem", "margin": "10px"};
+
 		return (
-			<div>
-				<div style={style}>Hello World</div>
-				<button onClick={this.getBlue.bind(this)}>Blue</button>
-				<button onClick={this.getRed.bind(this)}>Red</button>
+			<div style={{padding:"50px"}}>
+				<div style={style}>Settling America</div>
+				<button style={btnStyle} onClick={this.getBlue.bind(this)}>Blue</button>
+				<button style={btnStyle} onClick={this.getRed.bind(this)}>Red</button>
 			</div>
 		)
 	}

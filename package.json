@@ -4,8 +4,8 @@
   "description": "A daily quest-based dramatization of the settlement and development of america",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "start:dev": "webpack-dev-server"
   },
   "author": "Stephen Shilale",
   "license": "ISC",
@@ -13,7 +13,8 @@
     "axios": "^0.17.1",
     "express": "^4.16.2",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
