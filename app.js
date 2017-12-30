@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
+import Button from './components/Button';
+
 class MyComponent extends React.Component {
 
 	constructor() {
@@ -51,6 +53,7 @@ class MyComponent extends React.Component {
 				<h1>A game for our Country</h1>
 				<button style={btnStyle} onClick={this.getBlue.bind(this)}>Blue</button>
 				<button style={btnStyle} onClick={this.getRed.bind(this)}>Red</button>
+				<Button/>
 			</div>
 		)
 	}
