@@ -46,8 +46,9 @@ class MyComponent extends React.Component {
 		var btnStyle = { fontSize: "3rem", "margin": "10px"};
 
 		return (
-			<div style={{padding:"50px"}}>
+			<div style={{padding:"100px"}}>
 				<div style={style}>Settling America</div>
+				<h1>A game for our Country</h1>
 				<button style={btnStyle} onClick={this.getBlue.bind(this)}>Blue</button>
 				<button style={btnStyle} onClick={this.getRed.bind(this)}>Red</button>
 			</div>
