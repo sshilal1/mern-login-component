@@ -1,0 +1,11 @@
+{
+  "name": "settling-america",
+  "version": "0.1.0",
+  "description": "A daily quest-based dramatization of the settlement and development of america",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Stephen Shilale",
+  "license": "ISC"
+}
