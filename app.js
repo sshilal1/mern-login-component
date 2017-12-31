@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-
 import Button from './components/Button';
 import LoginInfo from './components/LoginInfo';
+import './app.css';
 
 class MyComponent extends React.Component {
 
 	constructor() {
 		super();
 		this.state = {
-			color : 'black'
+			color : '#333'
 		};
 	}
 

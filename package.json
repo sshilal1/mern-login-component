@@ -4,8 +4,10 @@
   "description": "A daily quest-based dramatization of the settlement and development of america",
   "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "start:dev": "webpack-dev-server"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "Stephen Shilale",
   "license": "ISC",
@@ -15,6 +17,7 @@
     "mongodb": "^2.2.33",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-scripts": "1.0.17",
     "sha1": "^1.1.1",
     "webpack": "^3.10.0"
   },
@@ -24,6 +27,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1"
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.19.1"
   }
 }
