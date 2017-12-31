@@ -63,14 +63,23 @@ app.post('/login', function (req,res) {
 	.then(function(result) {
 		console.log(`\nhash:${hashedPass}\nresp:${result.pass}`);
 		if (hashedPass == result.pass) {
-			res.send("Successfully Logged In");
+			res.send({
+				msg: "Succesfully Logged In",
+				stat: true
+			})
 		}
 		else {
-			res.send("Bad Password...")
+			res.send({
+				msg: "Bad Password...",
+				stat: false
+			})
 		}
 	})
 	.catch(function(err) {
-		res.send(err)
+		res.send({
+			msg: err,
+			stat: false
+		})
 	})
 })
 
