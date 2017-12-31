@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import Button from './components/Button';
+import LoginInfo from './components/LoginInfo';
 
 class MyComponent extends React.Component {
 
@@ -38,11 +39,21 @@ class MyComponent extends React.Component {
 	  });
 	}
 
+	createUser(user) {
+		axios.post('/newuser', user)
+		.then( (response) => {
+			console.log(response.data);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+	}
+
 	render() {
 
 		var style = {
 			color : this.state.color,
-			fontSize : "5rem"
+			fontSize : "6rem"
 		}
 
 		var btnStyle = { fontSize: "3rem", "margin": "10px"};
@@ -50,10 +61,8 @@ class MyComponent extends React.Component {
 		return (
 			<div style={{padding:"100px"}}>
 				<div style={style}>Settling America</div>
-				<h1>A game for our Country</h1>
-				<button style={btnStyle} onClick={this.getBlue.bind(this)}>Blue</button>
-				<button style={btnStyle} onClick={this.getRed.bind(this)}>Red</button>
-				<Button/>
+				<div style={{fontSize:"3rem"}}>The Game</div>
+				<LoginInfo onAdd={this.createUser}/>
 			</div>
 		)
 	}
