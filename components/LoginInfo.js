@@ -12,9 +12,9 @@ export default class LoginInfo extends React.Component {
 		}
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRegister = this.handleRegister.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
     this.signUp = this.signUp.bind(this);
-    this.register = this.register.bind(this);
   }
 
 	handleInputChange(event) {
@@ -25,20 +25,22 @@ export default class LoginInfo extends React.Component {
 		})
 	}
 
-	handleSubmit(event) {
-		var entry = Object.assign({}, this.state, {});
+	handleRegister() {
+  	var entry = Object.assign({}, this.state, {});
     this.props.onAdd(entry);
+  	this.setState({
+  		registering : false
+  	})
   }
+
+	handleLogin(event) {
+		var entry = Object.assign({}, this.state, {});
+    this.props.onLogin(entry);
+  }  
 
   signUp() {
   	this.setState({
   		registering : true
-  	})
-  }
-
-  register() {
-  	this.setState({
-  		registering : false
   	})
   }
 
@@ -69,12 +71,12 @@ export default class LoginInfo extends React.Component {
 							<input style={inputStyle} name="user" onChange={this.handleInputChange}/>
 						</div><div style={{display:"flex"}}>
 							<label style={style}>Password</label>
-							<input style={inputStyle} name="password" onChange={this.handleInputChange}/>
+							<input style={inputStyle} name="password" type="password" onChange={this.handleInputChange}/>
 						</div><div style={{display:"flex"}}>
 							<label style={style}>Confirm Password</label>
-							<input style={inputStyle} name="confirm" onChange={this.handleInputChange}/>
+							<input style={inputStyle} name="confirm" type="password" onChange={this.handleInputChange}/>
 						</div>
-						<button onClick={this.register} style={style} type="submit" label="Create User">Register</button>
+						<button onClick={this.handleRegister} style={style} type="submit" label="Create User">Register</button>
 				</div>
 			)
 		}
@@ -87,9 +89,9 @@ export default class LoginInfo extends React.Component {
 						<input style={inputStyle} name="user" onChange={this.handleInputChange}/>
 					</div><div style={{display:"flex"}}>
 						<label style={style}>Password</label>
-						<input style={inputStyle} name="password" onChange={this.handleInputChange}/>
+						<input style={inputStyle} name="password" type="password" onChange={this.handleInputChange}/>
 					</div>
-					<button onClick={this.handleSubmit} style={style} type="submit" label="Create User">Log In</button>
+					<button onClick={this.handleLogin} style={style} type="submit">Log In</button>
 					<div style={{display:"flex"}} onClick={this.signUp}>
 						Not Registered? Sign up!
 					</div>

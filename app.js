@@ -49,6 +49,16 @@ class MyComponent extends React.Component {
 		});
 	}
 
+	login(info) {
+		axios.post('/login', info)
+		.then( (response) => {
+			console.log(response.data);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+	}
+
 	render() {
 
 		var style = {
@@ -62,7 +72,7 @@ class MyComponent extends React.Component {
 			<div style={{padding:"100px"}}>
 				<div style={style}>Settling America</div>
 				<div style={{fontSize:"3rem"}}>The Game</div>
-				<LoginInfo onAdd={this.createUser}/>
+				<LoginInfo onAdd={this.createUser} onLogin={this.login}/>
 			</div>
 		)
 	}

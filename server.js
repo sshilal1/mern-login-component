@@ -28,7 +28,7 @@ var findUser = function(user) {
 				}
 				else {
 					console.log("Could Not Find:", user);
-					resolve(null);
+					reject(`Could Not Find: ${user}`);
 				}
 			})
 		})
@@ -45,10 +45,30 @@ app.get('/', function(req,res) {
 
 app.post('/newuser', function (req,res) {
 	var myobj = req.body;
-	console.log("Attempting to add new user:", myobj);
+	console.log("Attempting to add new user:", myobj.user);
 	findUser(myobj.user)
 	.then(function(result) {
 		res.send(result);
+	})
+})
+
+app.post('/login', function (req,res) {
+	var myobj = req.body;
+	console.log(`User '${myobj.user}' attempting to log in...`);
+	var hashedPass = sha1(myobj.password);
+
+	findUser(myobj.user)
+	.then(function(result) {
+		console.log(`\nhash:${hashedPass}\nresp:${result.pass}`);
+		if (hashedPass == result.pass) {
+			res.send("Successfully Logged In");
+		}
+		else {
+			res.send("Bad Password...")
+		}
+	})
+	.catch(function(err) {
+		res.send(err)
 	})
 })
 
