@@ -40,7 +40,7 @@ export default class Main extends React.Component {
 	}
 
 	createUser(user) {
-		axios.post('/newuser', user)
+		axios.post('http://localhost:4000/newuser', user)
 		.then( (response) => {
 			console.log(response.data);
 		})
@@ -50,7 +50,7 @@ export default class Main extends React.Component {
 	}
 
 	login(info) {
-		axios.post('/login', info)
+		axios.post('http://localhost:4000/login', info)
 		.then( (response) => {
 			console.log(response.data);
 		})

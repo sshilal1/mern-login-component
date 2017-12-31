@@ -3,6 +3,7 @@ const app = express();
 var mongoClient = require('mongodb').MongoClient;
 var dbUrl = "mongodb://localhost:27017/mydb";
 var sha1 = require('sha1');
+const cors = require('cors');
  
 var getDbObjects = function() {
 	return new Promise((resolve,reject) => {
@@ -37,6 +38,7 @@ var findUser = function(user) {
 
 app.use(express.static('public'));
 var bodyParser = require('body-parser');
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', function(req,res) {
@@ -83,6 +85,6 @@ app.get('/red', function(req,res) {
 	res.send("red");
 })
 
-app.listen(3000, function() {
+app.listen(4000, function() {
 	console.log("listening on port 3000...");
 })
