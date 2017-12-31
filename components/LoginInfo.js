@@ -59,7 +59,7 @@ export default class LoginInfo extends React.Component {
 			padding: "10px",
 			margin: "5px",
 			display: "inline-block",
-			fontSize: "1rem",
+			fontSize: "1.5rem",
 			flex: 1
 		}
 
