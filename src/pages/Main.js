@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Button from './components/Button';
-import LoginInfo from './components/LoginInfo';
-import './app.css';
+import Button from '../components/Button';
+import LoginInfo from '../components/LoginInfo';
 
-class MyComponent extends React.Component {
+
+export default class Main extends React.Component {
 
 	constructor() {
 		super();
@@ -77,8 +77,3 @@ class MyComponent extends React.Component {
 		)
 	}
 }
-
-ReactDOM.render(
-	<MyComponent/>,
-	document.getElementById('root')
-);
