@@ -14,6 +14,7 @@ export default class LoginInfo extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.returnLogin = this.returnLogin.bind(this);
     this.signUp = this.signUp.bind(this);
   }
 
@@ -44,24 +45,13 @@ export default class LoginInfo extends React.Component {
   	})
   }
 
-	render() {
+  returnLogin() {
+  	this.setState({
+  		registering : false
+  	})
+  }
 
-		var style = {
-			padding: "10px",
-			margin: "5px",
-			marginLeft: 0,
-			paddingLeft: 0,
-			display: "inline-block",
-			fontSize: "2rem",
-			flex: 1
-		}
-		var inputStyle = {
-			padding: "10px",
-			margin: "5px",
-			display: "inline-block",
-			fontSize: "1.5rem",
-			flex: 1
-		}
+	render() {
 
 		if (this.state.registering) {
 			return (
@@ -77,6 +67,7 @@ export default class LoginInfo extends React.Component {
 							<input className="login-row_input" name="confirm" type="password" onChange={this.handleInputChange}/>
 						</div><div className="login-row">
 							<button onClick={this.handleRegister} className="login-button font" type="submit" label="Create User">Register</button>
+							<div className="login-text-div" onClick={this.returnLogin}>Back to Login</div>
 						</div>
 				</div>
 			)
@@ -93,10 +84,7 @@ export default class LoginInfo extends React.Component {
 						<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange}/>
 					</div><div className="login-row">
 						<button onClick={this.handleLogin} className="login-button font" type="submit">Log In</button>
-						<div style={{display: "flex", alignItems: "flex-end"}}
-							onClick={this.signUp}>
-							Not Registered? Sign up!
-						</div>
+						<div className="login-text-div" onClick={this.signUp}>Not Registered? Sign up!</div>
 					</div>
 				</div>
 			)
