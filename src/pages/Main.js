@@ -52,7 +52,7 @@ export default class Main extends React.Component {
 
 		if (!this.state.start) {
 			return (
-				<div style={{padding:"100px"}}>
+				<div className="main">
 					<div style={style}>Settling America</div>
 					<div style={{fontSize:"3rem"}}>The Game</div>
 					<LoginInfo onAdd={this.createUser} onLogin={this.login}/>
@@ -61,7 +61,7 @@ export default class Main extends React.Component {
 		}
 		else {
 			return (
-				<div style={{padding:"100px"}}>
+				<div className="main">
 					<Home/>
 				</div>
 			)
