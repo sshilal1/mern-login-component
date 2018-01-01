@@ -65,35 +65,38 @@ export default class LoginInfo extends React.Component {
 
 		if (this.state.registering) {
 			return (
-				<div style={{width:"75%", display:"flex", flexDirection:"column", paddingTop:"100px"}}>
-						<div style={{display:"flex"}}>
-							<label style={style}>User Name</label>
-							<input style={inputStyle} name="user" onChange={this.handleInputChange}/>
-						</div><div style={{display:"flex"}}>
-							<label style={style}>Password</label>
-							<input style={inputStyle} name="password" type="password" onChange={this.handleInputChange}/>
-						</div><div style={{display:"flex"}}>
-							<label style={style}>Confirm Password</label>
-							<input style={inputStyle} name="confirm" type="password" onChange={this.handleInputChange}/>
+				<div className="login">
+						<div className="login-row">
+							<label className="login-row_label">User Name</label>
+							<input className="login-row_input" name="user" onChange={this.handleInputChange}/>
+						</div><div className="login-row">
+							<label className="login-row_label">Password</label>
+							<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange}/>
+						</div><div className="login-row">
+							<label className="login-row_label">Confirm Password</label>
+							<input className="login-row_input" name="confirm" type="password" onChange={this.handleInputChange}/>
+						</div><div className="login-row">
+							<button onClick={this.handleRegister} className="login-button font" type="submit" label="Create User">Register</button>
 						</div>
-						<button onClick={this.handleRegister} style={style} type="submit" label="Create User">Register</button>
 				</div>
 			)
 		}
 
 		else {
 			return (
-				<div style={{width:"75%", display:"flex", flexDirection:"column", paddingTop:"100px"}}>
-					<div style={{display:"flex"}}>
-						<label style={style}>User Name</label>
-						<input style={inputStyle} name="user" onChange={this.handleInputChange}/>
-					</div><div style={{display:"flex"}}>
-						<label style={style}>Password</label>
-						<input style={inputStyle} name="password" type="password" onChange={this.handleInputChange}/>
-					</div>
-					<button onClick={this.handleLogin} style={style} type="submit">Log In</button>
-					<div style={{display:"flex"}} onClick={this.signUp}>
-						Not Registered? Sign up!
+				<div className="login">
+					<div className="login-row">
+						<label className="login-row_label">User Name</label>
+						<input className="login-row_input" name="user" onChange={this.handleInputChange}/>
+					</div><div className="login-row">
+						<label className="login-row_label">Password</label>
+						<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange}/>
+					</div><div className="login-row">
+						<button onClick={this.handleLogin} className="login-button font" type="submit">Log In</button>
+						<div style={{display: "flex", alignItems: "flex-end"}}
+							onClick={this.signUp}>
+							Not Registered? Sign up!
+						</div>
 					</div>
 				</div>
 			)

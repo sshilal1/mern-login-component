@@ -3,6 +3,14 @@ body {
 	color: #333;
 }
 
+.font {
+	font-family: 'Bangers', cursive;
+}
+
+.flex {
+	display: flex;
+}
+
 #root {
 	display: flex;
 	justify-content: center
@@ -12,6 +20,34 @@ body {
 	padding: 50px;
 	border: 1px solid black;
 	width: 550px;
+}
+
+.login {
+	display:flex;
+	flex-direction:column;
+	padding-top:100px;
+}
+
+.login-row {
+	display: flex;
+	padding: 10px 10px 10px 0px;
+	margin: 5px 5px 5px 0px;
+}
+
+.login-row_label {
+	font-size: 2rem;
+	flex: 1;
+}
+
+.login-row_input {
+	font-size: 1.25rem;
+	flex: 1;
+}
+
+.login-button {
+	padding: 10px;
+	font-size: 2rem;
+	margin-right: 50px;
 }
 
 @media only screen and (max-device-width: 480px) {
