@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {DebounceInput} from 'react-debounce-input';
 
 export default class LoginInfo extends React.Component {
@@ -9,13 +10,15 @@ export default class LoginInfo extends React.Component {
 			user : '',
 			password : '',
 			confirm : '',
-			registering : false
+			registering : false,
+			founduser: false
 		}
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.returnLogin = this.returnLogin.bind(this);
+    this.findUser = this.findUser.bind(this);
     this.signUp = this.signUp.bind(this);
   }
 
@@ -28,8 +31,21 @@ export default class LoginInfo extends React.Component {
 		})
 
 		if (this.state.registering && name != "") {
-			this.props.onUserCheck(name);
+			this.findUser(name);
 		}
+	}
+
+	findUser(name) {
+		axios.post('http://localhost:4000/finduser', {user: name})
+		.then( (response) => {
+			console.log(response.data);
+			this.setState({
+				founduser: response.stat,
+			})
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
 	}
 
 	handleRegister() {
