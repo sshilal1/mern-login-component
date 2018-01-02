@@ -1,4 +1,5 @@
 import React from 'react';
+import {DebounceInput} from 'react-debounce-input';
 
 export default class LoginInfo extends React.Component {
 
@@ -20,10 +21,15 @@ export default class LoginInfo extends React.Component {
 
 	handleInputChange(event) {
 		const target = event.target;
+		const name = target.value;
 
 		this.setState({
-			[target.name] : target.value
+			[target.name] : name
 		})
+
+		if (this.state.registering && name != "") {
+			this.props.onUserCheck(name);
+		}
 	}
 
 	handleRegister() {
@@ -58,7 +64,10 @@ export default class LoginInfo extends React.Component {
 				<div className="login">
 						<div className="login-row">
 							<label className="login-row_label">User Name</label>
-							<input className="login-row_input" name="user" onChange={this.handleInputChange}/>
+							<DebounceInput className="login-row_input" name="user"
+								minLength={3}
+								debounceTimeout={300}
+								onChange={this.handleInputChange} />
 						</div><div className="login-row">
 							<label className="login-row_label">Password</label>
 							<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange}/>
@@ -78,7 +87,10 @@ export default class LoginInfo extends React.Component {
 				<div className="login">
 					<div className="login-row">
 						<label className="login-row_label">User Name</label>
-						<input className="login-row_input" name="user" onChange={this.handleInputChange}/>
+						<DebounceInput className="login-row_input" name="user"
+							minLength={3}
+							debounceTimeout={300}
+							onChange={this.handleInputChange} />
 					</div><div className="login-row">
 						<label className="login-row_label">Password</label>
 						<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange}/>

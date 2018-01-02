@@ -21,6 +21,7 @@
     "express": "^4.16.2",
     "mongodb": "^2.2.33",
     "react": "^16.0.0",
+    "react-debounce-input": "^3.1.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.17",
     "sha1": "^1.1.1",

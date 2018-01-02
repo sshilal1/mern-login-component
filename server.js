@@ -4,20 +4,6 @@ var mongoClient = require('mongodb').MongoClient;
 var dbUrl = "mongodb://localhost:27017/mydb";
 var sha1 = require('sha1');
 const cors = require('cors');
- 
-var getDbObjects = function() {
-	return new Promise((resolve,reject) => {
-		mongoClient.connect(dbUrl, function(err, db) {
-			if (err) reject(err);
-			db.collection("members").findOne({"user":"shillex"}, function(err, result) {
-				if (err) reject(err);
-				console.log(result);
-				resolve(result);
-				db.close();
-			});
-		});
-	})
-}
 
 var findUser = function(user) {
 	return new Promise((resolve,reject) => {
@@ -54,6 +40,26 @@ app.post('/newuser', function (req,res) {
 	})
 })
 
+app.post('/finduser', function (req,res) {
+	var myobj = req.body;
+	console.log("Searching for user name:", myobj.user);
+	findUser(myobj.user)
+	.then(function(result) {
+		if(result) {
+			res.send({
+				msg: `Found a user with name: ${myobj.user}`,
+				stat: true
+			})
+		}
+	})
+	.catch(function(err) {
+		res.send({
+			msg: err,
+			stat: false
+		})
+	})
+})
+
 app.post('/login', function (req,res) {
 	var myobj = req.body;
 	console.log(`User '${myobj.user}' attempting to log in...`);
@@ -80,13 +86,6 @@ app.post('/login', function (req,res) {
 			msg: err,
 			stat: false
 		})
-	})
-})
-
-app.get('/blue', function(req,res) {
-	getDbObjects()
-	.then(function(result) {
-		res.send("blue");
 	})
 })
 
