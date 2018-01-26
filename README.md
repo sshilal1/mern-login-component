@@ -1,2 +1,2 @@
-# settling-america
-A daily quest-based dramatization of the settlement and development of america
+# mern-react-login
+A React component, integrating with Mongo, Express, and Node for handling user login/registration
