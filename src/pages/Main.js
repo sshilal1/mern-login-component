@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+
 import Button from '../components/Button';
 import LoginInfo from '../components/LoginInfo';
 import Home from './Home';
+import gData from '../data/gamedata';
 
 export default class Main extends React.Component {
 
@@ -53,8 +55,8 @@ export default class Main extends React.Component {
 		if (!this.state.start) {
 			return (
 				<div className="main">
-					<div style={style}>Settling America</div>
-					<div style={{fontSize:"3rem"}}>The Game</div>
+					<div style={style}>{gData.title}</div>
+					<div style={{fontSize:"3rem"}}>{gData.subtitle}</div>
 					<LoginInfo onAdd={this.createUser} onLogin={this.login}/>
 				</div>
 			)
