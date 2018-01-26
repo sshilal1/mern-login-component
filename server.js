@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 var mongoClient = require('mongodb').MongoClient;
-var dbUrl = "mongodb://localhost:27017/mydb";
+var dbUrl = "mongodb://localhost:27017/mdb";
 var sha1 = require('sha1');
 const cors = require('cors');
 
