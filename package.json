@@ -1,7 +1,7 @@
 {
-  "name": "settling-america",
+  "name": "mern-login-component",
   "version": "0.1.0",
-  "description": "A daily quest-based dramatization of the settlement and development of america",
+  "description": "A React component that seamlessly works with Mongo, Express, and Node for user registration / login",
   "main": "app.js",
   "scripts": {
     "start": "nodemon server.js",
