@@ -40,7 +40,7 @@ export default class LoginInfo extends React.Component {
 			.then((response) => {
 				console.log(response.data);
 				this.setState({
-					founduser: response.stat,
+					founduser: response.data.stat,
 				})
 			})
 			.catch(function (error) {
@@ -76,6 +76,7 @@ export default class LoginInfo extends React.Component {
 	render() {
 
 		if (this.state.registering) {
+			var icolorclass = "login-row_icolor " + (this.state.founduser ? "icolor-reject" : "icolor-accept");
 			return (
 				<div className="login">
 					<div className="login-row">
@@ -86,7 +87,7 @@ export default class LoginInfo extends React.Component {
 								minLength={3}
 								debounceTimeout={300}
 								onChange={this.handleInputChange} />
-							<div className="login-row_icolor icolor-accept"></div>
+							<div className={icolorclass}></div>
 						</div>
 					</div><div className="login-row">
 						<label className="login-row_label">Password</label>

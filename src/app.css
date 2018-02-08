@@ -54,20 +54,26 @@ body {
 	flex: 1;
     border-radius: 5px;
 	margin: 1px;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
 }
 
 .icolor-accept {
 	animation-name: icolor-accept;
-	animation-duration: 1.5s;
-	animation-fill-mode: forwards;
 }
 .icolor-reject {
-	animation-name: icolor-accept;
-	animation-duration: 1.5s;
-	animation-fill-mode: forwards;
+	animation-name: icolor-reject;
+}
+.icolor-rej2ac {
+	animation-name: icolor-rej2ac;
+}
+.icolor-ac2rej {
+	animation-name: icolor-ac2rej;
 }
 @keyframes icolor-accept { 100% {background-color: #0ca00c; } }
 @keyframes icolor-reject { 100% {background-color: #ca3d11; } }
+@keyframes icolor-rej2ac { 0% {background-color: #ca3d11; } 100% {background-color: #0ca00c; }}
+@keyframes icolor-ac2rej { 0% {background-color: #0ca00c; } 100% {background-color: #ca3d11; }}
 
 .login-button {
 	padding: 10px;
