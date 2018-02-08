@@ -40,8 +40,25 @@ body {
 }
 
 .login-row_input {
+	display: flex;
 	font-size: 1.25rem;
 	flex: 1;
+	flex-direction: column;
+}
+
+.login-row_tbox {
+	flex: 5;
+}
+
+.login-row_icolor {
+	flex: 1;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+@keyframes icolor-accept {
+	from { background-color: white; }
+	to {background-color: #0ca00c; }
 }
 
 .login-button {

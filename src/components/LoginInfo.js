@@ -30,7 +30,7 @@ export default class LoginInfo extends React.Component {
 			[target.name]: name
 		})
 
-		if (this.state.registering && name != "") {
+		if (this.state.registering && name != "" && target.name === "user") {
 			this.findUser(name);
 		}
 	}
@@ -80,10 +80,14 @@ export default class LoginInfo extends React.Component {
 				<div className="login">
 					<div className="login-row">
 						<label className="login-row_label">User Name</label>
-						<DebounceInput className="login-row_input" name="user"
-							minLength={3}
-							debounceTimeout={300}
-							onChange={this.handleInputChange} />
+						<div className="login-row_input">
+							<DebounceInput className="login-row_tbox"
+								name="user"
+								minLength={3}
+								debounceTimeout={300}
+								onChange={this.handleInputChange} />
+							<div className="login-row_icolor"></div>
+						</div>
 					</div><div className="login-row">
 						<label className="login-row_label">Password</label>
 						<input className="login-row_input" name="password" type="password" onChange={this.handleInputChange} />
