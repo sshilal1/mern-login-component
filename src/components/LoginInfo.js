@@ -2,6 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import { DebounceInput } from 'react-debounce-input';
 
+var machine = {
+	"0" : "",
+	"1" : "accept",
+	"2" : "reject",
+	"3" : "ac2rej",
+	"4" : "rej2ac"
+}
+
 export default class LoginInfo extends React.Component {
 
 	constructor(props) {
