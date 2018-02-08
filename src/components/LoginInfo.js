@@ -86,7 +86,7 @@ export default class LoginInfo extends React.Component {
 								minLength={3}
 								debounceTimeout={300}
 								onChange={this.handleInputChange} />
-							<div className="login-row_icolor"></div>
+							<div className="login-row_icolor icolor-accept"></div>
 						</div>
 					</div><div className="login-row">
 						<label className="login-row_label">Password</label>
